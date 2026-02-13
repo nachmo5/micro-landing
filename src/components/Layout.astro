@@ -40,6 +40,22 @@ const pageTitle =
     <link rel="alternate" hreflang="x-default" href="https://mednach.com" />
 
     <title>{pageTitle}</title>
+
+    <!-- Google tag (gtag.js) — consent defaults to denied, updated by CookieConsent -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied'
+      });
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-725H9J75JR', { anonymize_ip: true });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-725H9J75JR"></script>
+
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
