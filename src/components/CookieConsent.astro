@@ -37,11 +37,10 @@ const t = useTypography(lang);
   (function () {
     const STORAGE_KEY = "cookie-consent";
     const banner = document.getElementById("cookie-consent") as HTMLElement;
-    // Re-use the global gtag defined in <head> — it pushes `arguments` (not an array)
-    const gtag = (window as any).gtag;
 
     function grantConsent() {
-      gtag("consent", "update", { analytics_storage: "granted" });
+      // Use the global gtag function declared in <head>
+      (window as any).gtag("consent", "update", { analytics_storage: "granted" });
     }
 
     function hideBanner() {
