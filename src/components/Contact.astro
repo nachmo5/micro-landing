@@ -32,7 +32,9 @@ const data = getData(t);
         method="post"
         enctype="text/plain"
         data-netlify="true"
+        name="contact"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div class="form-field">
           <label for="contact-name">{data.fields.name}</label>
           <input type="text" id="contact-name" name="name" required />
