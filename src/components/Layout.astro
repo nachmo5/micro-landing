@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+
+const lang = Astro.locals.lang;
+const locale = lang === "fr" ? "fr_FR" : "en_GB";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const description =
+  "We design and develop high-performance, tailor-made applications to drive your business forward.";
+const themeColor = "#000";
+const pageTitle =
+  lang === "fr"
+    ? "Développeur d'application | MedNach"
+    : "App Development | MedNach";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={themeColor} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="alternate" hreflang="en" href="https://mednach.com/en" />
+    <link rel="alternate" hreflang="fr" href="https://mednach.com/fr" />
+    <link rel="alternate" hreflang="x-default" href="https://mednach.com" />
+
+    <title>{pageTitle}</title>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: "Digital Agency",
+        description,
+        serviceType: [
+          "Web Development",
+          "Mobile Development",
+          "Code Audit",
+          "Coding Training",
+        ],
+        areaServed: "Worldwide",
+      })}
+    />
+  </head>
+  <body class="font-sans">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

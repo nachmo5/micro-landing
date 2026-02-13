@@ -1,0 +1,100 @@
+---
+import getData from "../data/tools.data";
+import { useTypography } from "../lib/typography";
+
+const t = useTypography(Astro.locals.lang);
+const data = getData(t);
+---
+
+<section id="tools" aria-labelledby="tools-heading">
+  <div class="mx-auto w-full max-w-7xl px-6 py-24">
+    <h2
+      id="tools-heading"
+      class="text-3xl sm:text-4xl font-bold text-center text-gray-900 tracking-tight"
+    >
+      {t("tools.heading")}
+    </h2>
+
+    <div class="tools-grid">
+      {
+        data.items.map((tool) => (
+          <div class="tool-item">
+            <div class="tool-logo" set:html={tool.logo} />
+            <span class="tool-name">{tool.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--color-border-subtle);
+    background: var(--color-bg);
+    transition:
+      transform var(--transition-spring),
+      box-shadow var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .tool-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border);
+  }
+
+  .tool-logo {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .tool-logo :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tool-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .tools-grid {
+      gap: 1.25rem;
+    }
+
+    .tool-item {
+      padding: 0.75rem 1.25rem;
+    }
+
+    .tool-logo {
+      width: 24px;
+      height: 24px;
+    }
+
+    .tool-name {
+      font-size: 0.875rem;
+    }
+  }
+</style>

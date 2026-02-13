@@ -1,0 +1,104 @@
+---
+import Layout from "../components/Layout.astro";
+import { useTypography } from "../lib/typography";
+
+const t = useTypography(Astro.locals.lang);
+const email = "contact@mednach.com";
+---
+
+<Layout>
+  <div class="prose-page">
+    <h1>{t("privacy.title")}</h1>
+    <p class="intro">{t("privacy.intro")}</p>
+
+    <section>
+      <h2>{t("privacy.dataCollection")}</h2>
+      <p>{t("privacy.dataCollectionText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.dataUse")}</h2>
+      <p>{t("privacy.dataUseText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.cookies")}</h2>
+      <p>{t("privacy.cookiesText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.rights")}</h2>
+      <p>{t("privacy.rightsText")}</p>
+      <p>{t("privacy.rightsExercise")} <a href={`mailto:${email}`}>{email}</a></p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.retention")}</h2>
+      <p>{t("privacy.retentionText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.changes")}</h2>
+      <p>{t("privacy.changesText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("privacy.contact")}</h2>
+      <p>{t("privacy.contactText")} <a href={`mailto:${email}`}>{email}</a></p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .prose-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .prose-page h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .intro {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .prose-page section {
+    margin-bottom: 2.5rem;
+  }
+
+  .prose-page h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .prose-page p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-page a {
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .prose-page a:hover {
+    color: var(--color-text-secondary);
+  }
+</style>

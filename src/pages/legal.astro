@@ -1,0 +1,142 @@
+---
+import Layout from "../components/Layout.astro";
+import { useTypography } from "../lib/typography";
+
+const t = useTypography(Astro.locals.lang);
+const email = "contact@mednach.com";
+---
+
+<Layout>
+  <div class="prose-page">
+    <h1>{t("legal.title")}</h1>
+
+    <section>
+      <h2>{t("legal.companyInfo")}</h2>
+      <dl class="info-list">
+        <div>
+          <dt>{t("legal.companyName")}</dt>
+          <dd>MedNach</dd>
+        </div>
+        <div>
+          <dt>{t("legal.legalForm")}</dt>
+          <dd>{t("legal.legalFormValue")}</dd>
+        </div>
+        <div>
+          <dt>{t("legal.siret")}</dt>
+          <dd>10099300500014</dd>
+        </div>
+        <div>
+          <dt>{t("legal.address")}</dt>
+          <dd>{t("legal.addressValue")}</dd>
+        </div>
+        <div>
+          <dt>{t("legal.email")}</dt>
+          <dd><a href={`mailto:${email}`}>{email}</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>{t("legal.hostingTitle")}</h2>
+      <dl class="info-list">
+        <div>
+          <dt>{t("legal.hostingProvider")}</dt>
+          <dd>Vercel Inc.</dd>
+        </div>
+        <div>
+          <dt>{t("legal.hostingAddress")}</dt>
+          <dd>340 S Lemon Ave #4133, Walnut, CA 91789, USA</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>{t("legal.intellectualProperty")}</h2>
+      <p>{t("legal.intellectualPropertyText")}</p>
+    </section>
+
+    <section>
+      <h2>{t("legal.liability")}</h2>
+      <p>{t("legal.liabilityText")}</p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .prose-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .prose-page h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin-bottom: 3rem;
+  }
+
+  .prose-page section {
+    margin-bottom: 2.5rem;
+  }
+
+  .prose-page h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .prose-page p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .info-list div {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .info-list dt {
+    font-weight: 600;
+    color: var(--color-text);
+    min-width: 160px;
+    flex-shrink: 0;
+  }
+
+  .info-list dd {
+    color: var(--color-text-secondary);
+  }
+
+  .info-list a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .info-list a:hover {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 540px) {
+    .info-list div {
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .info-list dt {
+      min-width: unset;
+    }
+  }
+</style>

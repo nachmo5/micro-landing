@@ -1,0 +1,322 @@
+---
+import { Image } from "astro:assets";
+import getData from "../data/projects.data";
+import { useTypography } from "../lib/typography";
+import Button from "./Button.astro";
+
+const t = useTypography(Astro.locals.lang);
+const data = getData(t);
+---
+
+<section id="projects" aria-labelledby="projects-heading" class="py-24">
+  <h2
+    id="projects-heading"
+    class="text-3xl sm:text-4xl font-bold text-center text-gray-900 tracking-tight mx-auto max-w-7xl px-6"
+  >
+    {t("projects.heading")}
+  </h2>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track" data-projects-track>
+      {
+        data.items.map((project) => (
+          <div class="project-card">
+            <div class="card-image-wrapper">
+              <Image
+                src={project.image}
+                alt={project.title}
+                class="card-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-footer">
+              <span class="card-title">{project.title}</span>
+              <Button
+                href={project.href}
+                variant="secondary"
+                size="sm"
+                target="_blank"
+              >
+                {t("projects.viewProject")}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <>
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </>
+                </svg>
+              </Button>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  #projects {
+    background: rgb(248, 248, 251);
+  }
+
+  .carousel-wrapper {
+    margin-top: 3rem;
+    overflow-x: clip;
+    overflow-y: visible;
+    padding-left: 1.5rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: grab;
+    user-select: none;
+  }
+
+  .carousel-track.dragging {
+    cursor: grabbing;
+  }
+
+  .project-card {
+    flex-shrink: 0;
+    width: 80vw;
+    height: 60vh;
+
+    @media (min-width: 640px) {
+      width: clamp(280px, 40vw, 400px);
+      height: clamp(160px, 50vh, 350px);
+    }
+
+    @media (min-width: 1024px) {
+      width: clamp(280px, 40vw, 400px);
+      height: clamp(160px, 22.5vw, 350px);
+    }
+
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--color-border-subtle);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition:
+      transform var(--transition-spring),
+      box-shadow var(--transition-base),
+      border-color var(--transition-base);
+    cursor: inherit;
+  }
+
+  .carousel-track:not(.dragging) .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border);
+  }
+
+  .card-image-wrapper {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: var(--radius-xl);
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .card-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 640px) {
+    .carousel-wrapper {
+      padding-left: 2rem;
+    }
+    .carousel-track {
+      gap: 2rem;
+    }
+    .card-footer {
+      padding: 1.25rem 1.5rem;
+    }
+    .card-title {
+      font-size: 1.0625rem;
+    }
+  }
+</style>
+
+<script>
+  const track = document.querySelector<HTMLElement>("[data-projects-track]");
+  if (track) {
+    const cards = track.querySelectorAll<HTMLElement>(".project-card");
+    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+    let current = 0;
+    let offset = 0;
+    let interval: ReturnType<typeof setInterval>;
+    let paused = false;
+    let dragging = false;
+    let startX = 0;
+    let startOffset = 0;
+    let dragDelta = 0;
+
+    const getCardWidth = () => cards[0].offsetWidth + gap;
+
+    const getMaxOffset = () => {
+      const visibleWidth = track.parentElement!.offsetWidth;
+      const totalWidth = cards.length * getCardWidth() - gap;
+      return Math.max(0, totalWidth - visibleWidth);
+    };
+
+    const getMaxIndex = () =>
+      Math.max(0, Math.ceil(getMaxOffset() / getCardWidth()));
+
+    const applyTransform = (px: number, animate = true) => {
+      track.style.transition = animate
+        ? "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
+        : "none";
+      track.style.transform = `translateX(${-px}px)`;
+    };
+
+    const slideTo = (index: number) => {
+      current = index;
+      offset = current * getCardWidth();
+      applyTransform(offset);
+    };
+
+    const next = () => {
+      const max = getMaxIndex();
+      slideTo(current >= max ? 0 : current + 1);
+    };
+
+    const start = () => {
+      stop(); // ensure no duplicate intervals
+      next();
+      interval = setInterval(() => {
+        if (!paused && isVisible) next();
+      }, 4000);
+    };
+
+    const onDragStart = (x: number) => {
+      dragging = true;
+      paused = true;
+      startX = x;
+      startOffset = offset;
+      dragDelta = 0;
+      track.classList.add("dragging");
+    };
+
+    const onDragMove = (x: number) => {
+      if (!dragging) return;
+      dragDelta = startX - x;
+      const clamped = Math.max(
+        0,
+        Math.min(getMaxOffset(), startOffset + dragDelta),
+      );
+      applyTransform(clamped, false);
+    };
+
+    const onDragEnd = () => {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove("dragging");
+
+      const raw = startOffset + dragDelta;
+      const clamped = Math.max(0, Math.min(getMaxOffset(), raw));
+      current = Math.round(clamped / getCardWidth());
+      offset = current * getCardWidth();
+      applyTransform(offset);
+
+      if (Math.abs(dragDelta) > 5) {
+        track.addEventListener("click", (e) => e.preventDefault(), {
+          once: true,
+          capture: true,
+        });
+      }
+
+      paused = false;
+    };
+
+    // Mouse events
+    track.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      onDragStart(e.clientX);
+    });
+    window.addEventListener("mousemove", (e) => onDragMove(e.clientX));
+    window.addEventListener("mouseup", onDragEnd);
+
+    // Touch events
+    track.addEventListener(
+      "touchstart",
+      (e) => onDragStart(e.touches[0].clientX),
+      { passive: true },
+    );
+    window.addEventListener(
+      "touchmove",
+      (e) => onDragMove(e.touches[0].clientX),
+      { passive: true },
+    );
+    window.addEventListener("touchend", onDragEnd);
+
+    // Hover pause (non-drag)
+    track.addEventListener("mouseenter", () => {
+      paused = true;
+    });
+    track.addEventListener("mouseleave", () => {
+      if (!dragging) paused = false;
+    });
+
+    let isVisible = false;
+    let observer: IntersectionObserver;
+
+    const stop = () => {
+      if (interval) clearInterval(interval);
+    };
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          isVisible = true;
+          start();
+        } else {
+          isVisible = false;
+          stop();
+        }
+      },
+      {
+        threshold: 0.4, // 40% visible before autoplay starts
+      },
+    );
+
+    observer.observe(track);
+  }
+</script>

@@ -1,0 +1,167 @@
+---
+import { Image } from "astro:assets";
+import getData from "../data/header.data";
+import { useTypography } from "../lib/typography";
+import Button from "./Button.astro";
+
+const lang = Astro.locals.lang;
+const nextLang = lang === "fr" ? "en" : "fr";
+const t = useTypography(lang);
+const data = getData(t);
+const path = Astro.url.pathname;
+const langSwitchHref =
+  lang === "fr"
+    ? path.replace(/^\/fr(\/|$)/, "/")
+    : `/fr${path === "/" ? "" : path}`;
+---
+
+<header
+  class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100"
+>
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 h-16">
+    <!-- Logo -->
+    <a href={`/${lang === "fr" ? "fr" : ""}`} class="shrink-0 flex gap-2">
+      <Image loading="eager" src={data.logo} alt="logo" class="h-8 w-auto" />
+      <span class="logo-text">{data.companyName}</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-1">
+      {
+        data.links.map((link) => (
+          <a href={link.href} class="nav-link">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Desktop right actions -->
+    <div class="hidden md:flex items-center gap-3">
+      <Button href={langSwitchHref} variant="secondary" size="md" flat>
+        {nextLang.toUpperCase()}
+      </Button>
+      <Button href="#contact" size="md" flat>{t("header.contact")}</Button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors hover:bg-gray-100"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span class="hamburger-line top-line"></span>
+      <span class="hamburger-line mid-line"></span>
+      <span class="hamburger-line bot-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0"
+  >
+    <nav class="flex flex-col gap-1 px-6 pb-6 pt-2">
+      {
+        data.links.map((link) => (
+          <a href={link.href} class="nav-link">
+            {link.label}
+          </a>
+        ))
+      }
+      <hr class="my-2 border-gray-100" />
+      <div class="flex items-center gap-3 px-4 py-2">
+        <Button href={langSwitchHref} variant="secondary" size="sm" flat>
+          {nextLang.toUpperCase()}
+        </Button>
+        <Button href="#contact" size="sm" flat>{t("header.contact")}</Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer so content isn't hidden behind the fixed header -->
+<div class="h-16"></div>
+
+<style>
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 1rem;
+    right: 1rem;
+    height: 1.5px;
+    background: var(--color-text);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .hamburger-line {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: #374151;
+    border-radius: 2px;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .top-line {
+    transform: translateY(-6px);
+  }
+  .bot-line {
+    transform: translateY(6px);
+  }
+
+  /* Open state */
+  .menu-open .top-line {
+    transform: rotate(45deg);
+  }
+  .menu-open .mid-line {
+    opacity: 0;
+  }
+  .menu-open .bot-line {
+    transform: rotate(-45deg);
+  }
+
+  .logo-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    letter-spacing: 0.05em;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle")!;
+  const menu = document.getElementById("mobile-menu")!;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.classList.toggle("menu-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    menu.style.maxHeight = isOpen ? `${menu.scrollHeight}px` : "0";
+  });
+</script>

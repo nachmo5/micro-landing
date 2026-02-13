@@ -1,0 +1,293 @@
+---
+import getData from "../data/roadmap.data";
+import { useTypography } from "../lib/typography";
+
+const t = useTypography(Astro.locals.lang);
+const data = getData(t);
+---
+
+<section id="roadmap" aria-labelledby="roadmap-heading" class="roadmap-section">
+  <div class="mx-auto w-full max-w-7xl px-6 py-32">
+    <h2
+      id="roadmap-heading"
+      class="text-3xl sm:text-4xl font-bold text-center text-gray-900 tracking-tight"
+    >
+      {t("roadmap.heading")}
+    </h2>
+
+    <div class="timeline">
+      {
+        data.steps.map((step, i) => (
+          <div
+            class:list={[
+              "step",
+              {
+                "step--last": i === data.steps.length - 1,
+                "step--has-substep": !!step.subStep,
+              },
+            ]}
+          >
+            <div class="step-icon-wrapper">
+              <div class="step-number">{i + 1}</div>
+              <div class="step-icon" set:html={step.icon} />
+            </div>
+            <div class="step-content">
+              <span class="step-title">{step.title}</span>
+              <p class="step-desc">{step.description}</p>
+              {step.subStep && (
+                <div class="substep">
+                  <div class="substep-node">
+                    <div class="substep-icon" set:html={step.subStep.icon} />
+                  </div>
+                  <div class="substep-info">
+                    <span class="substep-title">{step.subStep.title}</span>
+                    <p class="substep-desc">{step.subStep.description}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .roadmap-section {
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .step-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .step-number {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* Vertical line between icons on mobile */
+  .step:not(:last-child) .step-icon-wrapper::after {
+    content: "";
+    width: 2px;
+    flex: 1;
+    min-height: 2rem;
+    background: var(--color-border);
+    margin-top: 0.5rem;
+  }
+
+  .step-content {
+    padding-top: 0.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .step:last-child .step-content {
+    padding-bottom: 0;
+  }
+
+  .step-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-text-tertiary);
+    margin: 0.25rem 0 0;
+  }
+
+  /* ---- Sub-step (mobile: inline card) ---- */
+  .substep {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-accent-bg);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--color-accent);
+  }
+
+  .substep-node {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .substep-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .substep-desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--color-text-tertiary);
+    margin: 0.125rem 0 0;
+  }
+
+  /* ---- Desktop: horizontal timeline ---- */
+  @media (min-width: 1024px) {
+    .timeline {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .step {
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      gap: 0.75rem;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Hide vertical line */
+    .step:not(.step--last) .step-icon-wrapper::after {
+      display: none;
+    }
+
+    .step-content {
+      padding: 0;
+    }
+
+    /* Horizontal arrow between steps */
+    .step:not(.step--last)::after {
+      content: "";
+      position: absolute;
+      top: 35px;
+      left: calc(50% + 32px);
+      right: calc(-50% + 32px);
+      height: 2px;
+      background: var(--color-border);
+    }
+
+    .step:not(.step--last)::before {
+      content: "";
+      position: absolute;
+      top: 31px;
+      right: calc(-50% + 26px);
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 8px solid var(--color-border);
+      z-index: 1;
+    }
+
+    .step-title {
+      font-size: 1rem;
+    }
+
+    .step-desc {
+      font-size: 0.8125rem;
+      max-width: 160px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---- Sub-step (desktop: node on arrow with tooltip) ---- */
+    .substep {
+      position: absolute;
+      top: 35px;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      cursor: default;
+    }
+
+    .substep-node {
+      width: 30px;
+      height: 30px;
+      background: white;
+      border: 2px solid var(--color-accent);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+    }
+
+    .substep:hover .substep-node {
+      transform: scale(1.15);
+      box-shadow: var(--shadow-md);
+    }
+
+    .substep-info {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem 1rem;
+      box-shadow: var(--shadow-lg);
+      min-width: 180px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .substep:hover .substep-info {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .substep-title {
+      font-size: 0.8125rem;
+    }
+
+    .substep-desc {
+      font-size: 0.75rem;
+    }
+  }
+</style>

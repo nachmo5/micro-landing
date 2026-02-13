@@ -1,0 +1,269 @@
+{
+  "header": {
+    "servicesAndPricing": "Services & Tarifs",
+    "process": "Notre processus",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "home": {
+    "main": {
+      "title1": "Vos solutions digitales",
+      "title2": "De l'idée à l'envol",
+      "subtitle": "Nous concevons et développons des solutions digitales performantes et sur mesure pour propulser votre activité.",
+      "contactButton": "Contactez-nous",
+      "projectsButton": "Nos réalisations",
+      "webDevelopment": "Développement web",
+      "mobileDevelopment": "Développement mobile",
+      "codeAudit": "Audit de code",
+      "devTraining": "Coaching"
+    }
+  },
+  "whyUs": {
+    "heading": "Pourquoi nous choisir",
+    "stats": {
+      "experience": "Années d'expérience",
+      "projects": "Projets livrés",
+      "clients": "Clients satisfaits"
+    },
+    "features": {
+      "quality": {
+        "title": "Qualité premium",
+        "description": "Des interfaces pixel-perfect construites selon les plus hauts standards."
+      },
+      "documented": {
+        "title": "Bien documenté",
+        "description": "Une documentation claire pour que votre équipe puisse maintenir et faire évoluer facilement."
+      },
+      "seo": {
+        "title": "Optimisé SEO",
+        "description": "Optimisé pour les moteurs de recherche dès le premier jour."
+      },
+      "support": {
+        "title": "Support continu",
+        "description": "Un accompagnement dédié après le lancement pour que tout fonctionne parfaitement."
+      },
+      "fastDelivery": {
+        "title": "Livraison rapide",
+        "description": "Des processus efficaces pour livrer votre projet dans les délais."
+      },
+      "cleanCode": {
+        "title": "Code propre",
+        "description": "Un code lisible et maintenable qui évolue avec votre entreprise."
+      }
+    }
+  },
+  "roadmap": {
+    "heading": "Notre processus",
+    "steps": {
+      "discovery": {
+        "title": "Découverte",
+        "description": "Nous écoutons attentivement pour comprendre vos besoins, objectifs et vision."
+      },
+      "proposal": {
+        "title": "Proposition",
+        "description": "Nous concevons une solution sur mesure et vous présentons notre approche."
+      },
+      "quote": {
+        "title": "Devis",
+        "description": "Vous recevez un devis détaillé avec des tarifs clairs et des jalons."
+      },
+      "development": {
+        "title": "Développement",
+        "description": "Nous construisons votre projet en partageant nos avancées régulièrement."
+      },
+      "validation": {
+        "title": "Validation",
+        "description": "Ensemble, nous vérifions que la solution répond à vos attentes."
+      },
+      "delivery": {
+        "title": "Livraison",
+        "description": "Nous déployons, transférons tout et nous assurons que tout fonctionne."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "Un support continu pour garder votre produit au meilleur niveau."
+      }
+    },
+    "subSteps": {
+      "kickoff": {
+        "title": "Lancement",
+        "description": "Un acompte nous permet de démarrer immédiatement."
+      },
+      "milestone": {
+        "title": "Paiement intermédiaire",
+        "description": "Un paiement à cette étape permet de maintenir le projet en bonne voie."
+      },
+      "finalPayment": {
+        "title": "Paiement final",
+        "description": "Le solde restant est réglé à la livraison."
+      }
+    }
+  },
+  "pricing": {
+    "heading": "Tarifs",
+    "cta": "Commencer",
+    "startingAt": "À partir de",
+    "customQuote": "Devis personnalisé",
+    "estimation": {
+      "weeks": "semaines",
+      "hourSession": "heure de session",
+      "flexible": "Flexible",
+      "day": "jour",
+      "days": "jours"
+    },
+    "items": {
+      "ecommerce": {
+        "title": "Site e-commerce",
+        "description": "Une boutique en ligne complète, adaptée à votre marque et vos produits.",
+        "features": {
+          "f1": "Catalogue produits & recherche",
+          "f2": "Panier & paiement sécurisé",
+          "f3": "Intégration passerelle de paiement",
+          "f4": "Gestion des commandes & stocks"
+        }
+      },
+      "landing": {
+        "title": "Landing page",
+        "description": "Un site mono-page percutant pour présenter votre produit ou service.",
+        "features": {
+          "f1": "Design responsive sur mesure",
+          "f2": "Optimisé SEO",
+          "f3": "Formulaire de contact & analytics",
+          "f4": "Chargement ultra-rapide"
+        }
+      },
+      "audit": {
+        "title": "Audit de code",
+        "description": "Un examen approfondi de votre base de code avec des recommandations concrètes.",
+        "features": {
+          "f1": "Revue d'architecture",
+          "f2": "Analyse de performance",
+          "f3": "Évaluation de sécurité",
+          "f4": "Rapport détaillé & plan d'action"
+        }
+      },
+      "mobile": {
+        "title": "Application mobile",
+        "description": "Une application mobile native ou cross-platform pour iOS et Android.",
+        "features": {
+          "f1": "Support iOS & Android",
+          "f2": "Notifications push",
+          "f3": "Mode hors-ligne",
+          "f4": "Déploiement sur les stores"
+        }
+      },
+      "coaching": {
+        "title": "Coaching dev",
+        "description": "Des sessions individuelles pour faire monter en compétences votre équipe.",
+        "features": {
+          "f1": "Sessions personnalisées",
+          "f2": "Revues de code & feedback",
+          "f3": "Bonnes pratiques",
+          "f4": "Ateliers d'équipe"
+        }
+      },
+      "custom": {
+        "title": "Application sur mesure",
+        "description": "Une application web construite selon vos spécifications exactes.",
+        "features": {
+          "f1": "Architecture sur mesure",
+          "f2": "Intégrations API & tierces",
+          "f3": "Tableau de bord admin",
+          "f4": "Documentation complète"
+        }
+      },
+      "team": {
+        "title": "Rejoindre votre équipe",
+        "description": "Un développeur expérimenté intégré à votre équipe au quotidien.",
+        "features": {
+          "f1": "Disponibilité temps plein",
+          "f2": "Intégration workflow agile",
+          "f3": "Communication directe",
+          "f4": "Transfert de connaissances"
+        }
+      },
+      "embedded": {
+        "title": "Application embarquée",
+        "description": "Une application conçue pour bornes, terminaux ou matériel dédié.",
+        "features": {
+          "f1": "Intégration matériel dédié",
+          "f2": "Conception offline-first",
+          "f3": "Interface tactile optimisée",
+          "f4": "Mises à jour à distance"
+        }
+      }
+    }
+  },
+  "tools": {
+    "heading": "Notre stack technique"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "siret": "SIRET",
+    "navigation": "Navigation",
+    "legal": "Juridique",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "contact": {
+    "heading": "Contactez-nous",
+    "subtitle": "Un projet en tête ? Parlons-en.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "emailLabel": "Écrivez-nous directement"
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "companyInfo": "Informations sur l'entreprise",
+    "companyName": "Nom de l'entreprise",
+    "legalForm": "Forme juridique",
+    "legalFormValue": "Entreprise individuelle",
+    "siret": "SIRET",
+    "address": "Adresse",
+    "addressValue": "France",
+    "email": "Email",
+    "hosting": "Hébergement",
+    "hostingTitle": "Hébergement du site",
+    "hostingProvider": "Fournisseur",
+    "hostingAddress": "Adresse",
+    "intellectualProperty": "Propriété intellectuelle",
+    "intellectualPropertyText": "L'ensemble du contenu de ce site (textes, images, graphiques, logos, icônes) est la propriété de MedNach et est protégé par les lois françaises et internationales sur la propriété intellectuelle. Toute reproduction, distribution ou utilisation sans autorisation écrite préalable est strictement interdite.",
+    "liability": "Responsabilité",
+    "liabilityText": "MedNach met tout en œuvre pour assurer l'exactitude des informations publiées sur ce site. Cependant, MedNach ne saurait être tenu responsable des erreurs, omissions ou des résultats obtenus suite à l'utilisation de ces informations."
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "intro": "MedNach s'engage à protéger votre vie privée. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.",
+    "dataCollection": "Collecte des données",
+    "dataCollectionText": "Nous collectons des données personnelles uniquement lorsque vous les soumettez volontairement via notre formulaire de contact (nom, adresse email, contenu du message). Nous ne collectons aucune donnée automatiquement en dehors des journaux serveur standards.",
+    "dataUse": "Utilisation des données",
+    "dataUseText": "Les données collectées sont utilisées uniquement pour répondre à vos demandes et gérer notre relation commerciale. Nous ne vendons, n'échangeons ni ne transférons vos informations personnelles à des tiers.",
+    "cookies": "Cookies",
+    "cookiesText": "Ce site n'utilise pas de cookies de suivi ni d'analyses tierces. Seuls les cookies essentiels au bon fonctionnement du site peuvent être utilisés.",
+    "rights": "Vos droits",
+    "rightsText": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Vous pouvez également vous opposer au traitement ou en demander la limitation.",
+    "rightsExercise": "Pour exercer ces droits, veuillez nous contacter à :",
+    "retention": "Conservation des données",
+    "retentionText": "Vos données personnelles sont conservées uniquement le temps nécessaire à la réalisation des finalités pour lesquelles elles ont été collectées, ou conformément aux exigences légales.",
+    "changes": "Modifications de cette politique",
+    "changesText": "Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. Toute modification sera publiée sur cette page.",
+    "contact": "Contact",
+    "contactText": "Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à :"
+  },
+  "projects": {
+    "heading": "Nos projets",
+    "viewProject": "Voir",
+    "items": {
+      "project1": "Plateforme e-commerce",
+      "project2": "Application bancaire mobile",
+      "project3": "Tableau de bord SaaS",
+      "project4": "Site corporate",
+      "project5": "Page d'atterrissage",
+      "project6": "Application kiosque embarquée",
+      "project7": "Application d'écoute musicale",
+      "project8": "Application de livraison restaurant"
+    }
+  }
+}

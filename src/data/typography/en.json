@@ -1,0 +1,269 @@
+{
+  "header": {
+    "servicesAndPricing": "Services & Pricing",
+    "process": "Our process",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "main": {
+      "title1": "Your digital solutions",
+      "title2": "From start to scale",
+      "subtitle": "We design and develop high-performance, tailor-made digital solutions to drive your business forward.",
+      "contactButton": "Contact us",
+      "projectsButton": "Our work",
+      "webDevelopment": "Web development",
+      "mobileDevelopment": "Mobile development",
+      "codeAudit": "Code audit",
+      "devTraining": "Coaching"
+    }
+  },
+  "whyUs": {
+    "heading": "Why choose us",
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Projects delivered",
+      "clients": "Happy clients"
+    },
+    "features": {
+      "quality": {
+        "title": "Premium quality",
+        "description": "Pixel-perfect interfaces built to the highest standards."
+      },
+      "documented": {
+        "title": "Well documented",
+        "description": "Clear documentation so your team can maintain and extend with ease."
+      },
+      "seo": {
+        "title": "SEO optimized",
+        "description": "Search-engine friendly from day one to maximize your visibility."
+      },
+      "support": {
+        "title": "Ongoing support",
+        "description": "Dedicated assistance after launch to keep everything running smoothly."
+      },
+      "fastDelivery": {
+        "title": "Fast delivery",
+        "description": "Efficient workflows that get your project live on schedule."
+      },
+      "cleanCode": {
+        "title": "Clean code",
+        "description": "Readable, maintainable code that scales with your business."
+      }
+    }
+  },
+  "roadmap": {
+    "heading": "What to expect",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We listen carefully to understand your needs, goals and vision."
+      },
+      "proposal": {
+        "title": "Proposal",
+        "description": "We design a tailored solution and walk you through our approach."
+      },
+      "quote": {
+        "title": "Quote",
+        "description": "You receive a detailed quote with clear pricing and milestones."
+      },
+      "development": {
+        "title": "Development",
+        "description": "We build your project, sharing progress and keeping you in the loop."
+      },
+      "validation": {
+        "title": "Validation",
+        "description": "Together we review and validate the solution to ensure it meets your expectations."
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "We deploy, hand over everything and make sure you're up and running."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "description": "Ongoing support and maintenance to keep your product at its best."
+      }
+    },
+    "subSteps": {
+      "kickoff": {
+        "title": "Kick-off",
+        "description": "A percentage upfront payment gets us started right away."
+      },
+      "milestone": {
+        "title": "Milestone payment",
+        "description": "A progress payment at this stage keeps the project moving forward."
+      },
+      "finalPayment": {
+        "title": "Final payment",
+        "description": "The remaining balance is settled upon delivery."
+      }
+    }
+  },
+  "pricing": {
+    "heading": "Services & Pricing",
+    "cta": "Get started",
+    "startingAt": "Starting At",
+    "customQuote": "Custom quote",
+    "estimation": {
+      "weeks": "weeks",
+      "hourSession": "hour session",
+      "flexible": "Flexible",
+      "day": "day",
+      "days": "days"
+    },
+    "items": {
+      "ecommerce": {
+        "title": "Ecommerce website",
+        "description": "A fully-featured online store tailored to your brand and products.",
+        "features": {
+          "f1": "Product catalog & search",
+          "f2": "Cart & secure checkout",
+          "f3": "Payment gateway integration",
+          "f4": "Order & inventory management"
+        }
+      },
+      "landing": {
+        "title": "Landing page",
+        "description": "A high-converting single-page site to showcase your product or service.",
+        "features": {
+          "f1": "Custom responsive design",
+          "f2": "SEO optimized",
+          "f3": "Contact form & analytics",
+          "f4": "Fast loading performance"
+        }
+      },
+      "audit": {
+        "title": "Code audit",
+        "description": "A thorough review of your codebase with actionable recommendations.",
+        "features": {
+          "f1": "Architecture review",
+          "f2": "Performance analysis",
+          "f3": "Security assessment",
+          "f4": "Detailed report & action plan"
+        }
+      },
+      "mobile": {
+        "title": "Mobile app",
+        "description": "A native or cross-platform mobile application for iOS and Android.",
+        "features": {
+          "f1": "iOS & Android support",
+          "f2": "Push notifications",
+          "f3": "Offline capability",
+          "f4": "App store deployment"
+        }
+      },
+      "coaching": {
+        "title": "Dev coaching",
+        "description": "One-on-one sessions to level up your team's skills and practices.",
+        "features": {
+          "f1": "Personalized sessions",
+          "f2": "Code reviews & feedback",
+          "f3": "Best practices guidance",
+          "f4": "Team workshops"
+        }
+      },
+      "custom": {
+        "title": "Custom app",
+        "description": "A bespoke web application built to your exact specifications.",
+        "features": {
+          "f1": "Tailored architecture",
+          "f2": "API & third-party integrations",
+          "f3": "Admin dashboard",
+          "f4": "Full documentation"
+        }
+      },
+      "team": {
+        "title": "Join your team",
+        "description": "An experienced developer embedded in your team on a daily basis.",
+        "features": {
+          "f1": "Full-time availability",
+          "f2": "Agile workflow integration",
+          "f3": "Direct communication",
+          "f4": "Knowledge transfer"
+        }
+      },
+      "embedded": {
+        "title": "Embedded app",
+        "description": "A purpose-built application for kiosks, terminals or dedicated hardware.",
+        "features": {
+          "f1": "Custom hardware integration",
+          "f2": "Offline-first design",
+          "f3": "Touch-optimized UI",
+          "f4": "Remote update support"
+        }
+      }
+    }
+  },
+  "tools": {
+    "heading": "Our tech stack"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "siret": "SIRET",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "subtitle": "Have a project in mind? Let's talk about it.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "emailLabel": "Email us directly"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "companyInfo": "Company information",
+    "companyName": "Company name",
+    "legalForm": "Legal form",
+    "legalFormValue": "Sole proprietorship",
+    "siret": "SIRET",
+    "address": "Address",
+    "addressValue": "France",
+    "email": "Email",
+    "hosting": "Hosting",
+    "hostingTitle": "Website hosting",
+    "hostingProvider": "Provider",
+    "hostingAddress": "Address",
+    "intellectualProperty": "Intellectual property",
+    "intellectualPropertyText": "All content on this website (text, images, graphics, logos, icons) is the property of MedNach and is protected by French and international intellectual property laws. Any reproduction, distribution, or use without prior written authorization is strictly prohibited.",
+    "liability": "Liability",
+    "liabilityText": "MedNach makes every effort to ensure the accuracy of the information published on this site. However, MedNach cannot be held liable for errors, omissions, or results obtained from the use of this information."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "MedNach is committed to protecting your privacy. This policy explains how we collect, use, and protect your personal data.",
+    "dataCollection": "Data collection",
+    "dataCollectionText": "We collect personal data only when you voluntarily submit it through our contact form (name, email address, message content). We do not collect any data automatically outside of standard server logs.",
+    "dataUse": "Use of data",
+    "dataUseText": "The data collected is used solely to respond to your inquiries and to manage our business relationship. We do not sell, trade, or transfer your personal information to third parties.",
+    "cookies": "Cookies",
+    "cookiesText": "This website does not use tracking cookies or third-party analytics. Only essential cookies required for the website to function properly may be used.",
+    "rights": "Your rights",
+    "rightsText": "In accordance with the General Data Protection Regulation (GDPR), you have the right to access, rectify, delete, and port your personal data. You may also object to or restrict the processing of your data.",
+    "rightsExercise": "To exercise these rights, please contact us at:",
+    "retention": "Data retention",
+    "retentionText": "Your personal data is retained only for as long as necessary to fulfill the purposes for which it was collected, or as required by law.",
+    "changes": "Changes to this policy",
+    "changesText": "We may update this privacy policy from time to time. Any changes will be posted on this page.",
+    "contact": "Contact",
+    "contactText": "For any questions regarding this privacy policy, please contact us at:"
+  },
+  "projects": {
+    "heading": "Our projects",
+    "viewProject": "View",
+    "items": {
+      "project1": "Ecommerce website",
+      "project2": "Betting mobile app",
+      "project3": "Learning management system",
+      "project4": "Flat sharing website",
+      "project5": "Landing page",
+      "project6": "Kiosk embedded app",
+      "project7": "Music listening app",
+      "project8": "Restaurant delivery app"
+    }
+  }
+}
