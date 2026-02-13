@@ -13,5 +13,6 @@ export default (t: ReturnType<typeof useTypography>) => ({
   legalLinks: [
     { label: t("footer.legalNotice"), href: "/legal" },
     { label: t("footer.privacyPolicy"), href: "/privacy" },
+    { label: t("footer.cookieSettings"), href: "#", id: "footer-cookie-settings" },
   ],
 });

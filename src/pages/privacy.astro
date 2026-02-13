@@ -24,7 +24,27 @@ const email = "contact@mednach.com";
     <section>
       <h2>{t("privacy.cookies")}</h2>
       <p>{t("privacy.cookiesText")}</p>
+      <p>
+        <a href="#" id="privacy-withdraw-consent" class="withdraw-link">
+          {t("privacy.withdrawConsent")}
+        </a>
+      </p>
+      <p id="privacy-consent-withdrawn" class="consent-withdrawn" hidden>
+        {t("privacy.consentWithdrawn")}
+      </p>
     </section>
+
+    <script>
+      const withdrawLink = document.getElementById("privacy-withdraw-consent");
+      if (withdrawLink) {
+        withdrawLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (typeof (window as any).__withdrawCookieConsent === "function") {
+            (window as any).__withdrawCookieConsent();
+          }
+        });
+      }
+    </script>
 
     <section>
       <h2>{t("privacy.rights")}</h2>
@@ -100,5 +120,15 @@ const email = "contact@mednach.com";
 
   .prose-page a:hover {
     color: var(--color-text-secondary);
+  }
+
+  .withdraw-link {
+    font-size: 0.875rem;
+  }
+
+  .consent-withdrawn {
+    font-size: 0.875rem;
+    color: var(--color-success);
+    font-weight: 600;
   }
 </style>

@@ -197,13 +197,19 @@
   "tools": {
     "heading": "Notre stack technique"
   },
+  "consent": {
+    "message": "Nous utilisons des cookies pour analyser le trafic du site avec Google Analytics. Vos données sont anonymisées. Aucun cookie n'est déposé sans votre accord.",
+    "accept": "Accepter",
+    "decline": "Refuser"
+  },
   "footer": {
     "rights": "Tous droits réservés",
     "siret": "SIRET",
     "navigation": "Navigation",
     "legal": "Juridique",
     "legalNotice": "Mentions légales",
-    "privacyPolicy": "Politique de confidentialité"
+    "privacyPolicy": "Politique de confidentialité",
+    "cookieSettings": "Paramètres des cookies"
   },
   "contact": {
     "heading": "Contactez-nous",
@@ -241,7 +247,9 @@
     "dataUse": "Utilisation des données",
     "dataUseText": "Les données collectées sont utilisées uniquement pour répondre à vos demandes et gérer notre relation commerciale. Nous ne vendons, n'échangeons ni ne transférons vos informations personnelles à des tiers.",
     "cookies": "Cookies",
-    "cookiesText": "Ce site n'utilise pas de cookies de suivi ni d'analyses tierces. Seuls les cookies essentiels au bon fonctionnement du site peuvent être utilisés.",
+    "cookiesText": "Ce site utilise Google Analytics 4 pour mesurer le trafic. Les cookies d'analyse (_ga, _gid) ne sont déposés qu'après votre acceptation explicite via le bandeau de consentement. Les adresses IP sont anonymisées. Aucun suivi n'est effectué sans votre consentement. Vous pouvez retirer votre consentement à tout moment.",
+    "withdrawConsent": "Retirer le consentement aux cookies",
+    "consentWithdrawn": "Votre consentement aux cookies a été retiré. Les cookies d'analyse ont été supprimés.",
     "rights": "Vos droits",
     "rightsText": "Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Vous pouvez également vous opposer au traitement ou en demander la limitation.",
     "rightsExercise": "Pour exercer ces droits, veuillez nous contacter à :",

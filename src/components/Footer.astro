@@ -28,7 +28,7 @@ const year = new Date().getFullYear();
         <nav class="footer-link-group" aria-label="Legal">
           <span class="footer-group-title">{t("footer.legal")}</span>
           {data.legalLinks.map((link) => (
-            <a href={link.href} class="footer-link">{link.label}</a>
+            <a href={link.href} class="footer-link" id={link.id ?? undefined}>{link.label}</a>
           ))}
         </nav>
       </div>
@@ -41,6 +41,18 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  const cookieLink = document.getElementById("footer-cookie-settings");
+  if (cookieLink) {
+    cookieLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (typeof (window as any).__withdrawCookieConsent === "function") {
+        (window as any).__withdrawCookieConsent();
+      }
+    });
+  }
+</script>
 
 <style>
   .footer {

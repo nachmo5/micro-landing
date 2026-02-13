@@ -197,13 +197,19 @@
   "tools": {
     "heading": "Our tech stack"
   },
+  "consent": {
+    "message": "We use cookies to analyze site traffic with Google Analytics. Your data is anonymized. No cookies are set until you accept.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "footer": {
     "rights": "All rights reserved",
     "siret": "SIRET",
     "navigation": "Navigation",
     "legal": "Legal",
     "legalNotice": "Legal Notice",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "cookieSettings": "Cookie settings"
   },
   "contact": {
     "heading": "Get in touch",
@@ -241,7 +247,9 @@
     "dataUse": "Use of data",
     "dataUseText": "The data collected is used solely to respond to your inquiries and to manage our business relationship. We do not sell, trade, or transfer your personal information to third parties.",
     "cookies": "Cookies",
-    "cookiesText": "This website does not use tracking cookies or third-party analytics. Only essential cookies required for the website to function properly may be used.",
+    "cookiesText": "This website uses Google Analytics 4 to measure traffic. Analytics cookies (_ga, _gid) are only set after you explicitly accept via the cookie consent banner. IP addresses are anonymized. No tracking occurs without your consent. You may withdraw your consent at any time.",
+    "withdrawConsent": "Withdraw cookie consent",
+    "consentWithdrawn": "Your cookie consent has been withdrawn. Analytics cookies have been deleted.",
     "rights": "Your rights",
     "rightsText": "In accordance with the General Data Protection Regulation (GDPR), you have the right to access, rectify, delete, and port your personal data. You may also object to or restrict the processing of your data.",
     "rightsExercise": "To exercise these rights, please contact us at:",
