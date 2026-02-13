@@ -17,6 +17,16 @@ const data = getData(t);
   </h2>
 
   <div class="carousel-wrapper">
+    <button class="carousel-btn carousel-btn--prev" data-carousel-prev aria-label="Previous" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </button>
+    <button class="carousel-btn carousel-btn--next" data-carousel-next aria-label="Next" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 6 15 12 9 18" />
+      </svg>
+    </button>
     <div class="carousel-track" data-projects-track>
       {
         data.items.map((project) => (
@@ -69,11 +79,56 @@ const data = getData(t);
   }
 
   .carousel-wrapper {
+    position: relative;
     margin-top: 3rem;
     overflow-x: clip;
     overflow-y: visible;
     padding-left: 1.5rem;
   }
+
+  .carousel-btn {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+
+  .carousel-btn:hover {
+    background: var(--color-bg-muted);
+    border-color: var(--color-text-tertiary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .carousel-btn--prev {
+    left: 0.75rem;
+  }
+
+  .carousel-btn--next {
+    right: 0.75rem;
+  }
+
 
   .carousel-track {
     display: flex;
@@ -177,6 +232,8 @@ const data = getData(t);
   const track = document.querySelector<HTMLElement>("[data-projects-track]");
   if (track) {
     const cards = track.querySelectorAll<HTMLElement>(".project-card");
+    const btnPrev = document.querySelector<HTMLButtonElement>("[data-carousel-prev]");
+    const btnNext = document.querySelector<HTMLButtonElement>("[data-carousel-next]");
     const gap = parseFloat(getComputedStyle(track).gap) || 24;
     let current = 0;
     let offset = 0;
@@ -198,6 +255,11 @@ const data = getData(t);
     const getMaxIndex = () =>
       Math.max(0, Math.ceil(getMaxOffset() / getCardWidth()));
 
+    const updateButtons = () => {
+      if (btnPrev) btnPrev.disabled = current <= 0;
+      if (btnNext) btnNext.disabled = current >= getMaxIndex();
+    };
+
     const applyTransform = (px: number, animate = true) => {
       track.style.transition = animate
         ? "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)"
@@ -209,12 +271,27 @@ const data = getData(t);
       current = index;
       offset = current * getCardWidth();
       applyTransform(offset);
+      updateButtons();
     };
 
     const next = () => {
       const max = getMaxIndex();
       slideTo(current >= max ? 0 : current + 1);
     };
+
+    // Arrow buttons
+    if (btnPrev) {
+      btnPrev.addEventListener("click", () => {
+        if (current > 0) slideTo(current - 1);
+      });
+    }
+    if (btnNext) {
+      btnNext.addEventListener("click", () => {
+        const max = getMaxIndex();
+        if (current < max) slideTo(current + 1);
+      });
+    }
+    updateButtons();
 
     const start = () => {
       stop(); // ensure no duplicate intervals
@@ -253,6 +330,7 @@ const data = getData(t);
       current = Math.round(clamped / getCardWidth());
       offset = current * getCardWidth();
       applyTransform(offset);
+      updateButtons();
 
       if (Math.abs(dragDelta) > 5) {
         track.addEventListener("click", (e) => e.preventDefault(), {
