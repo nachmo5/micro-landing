@@ -44,7 +44,7 @@ const pageTitle =
     <!-- Google tag (gtag.js) — consent defaults to denied, updated by CookieConsent -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      window.gtag = function(){dataLayer.push(arguments);}
       gtag('consent', 'default', {
         analytics_storage: 'denied'
       });

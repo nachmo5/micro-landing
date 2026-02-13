@@ -37,9 +37,8 @@ const t = useTypography(lang);
   (function () {
     const STORAGE_KEY = "cookie-consent";
     const banner = document.getElementById("cookie-consent") as HTMLElement;
-    const w = window as any;
-    w.dataLayer = w.dataLayer || [];
-    function gtag(...args: any[]) { w.dataLayer.push(args); }
+    // Re-use the global gtag defined in <head> — it pushes `arguments` (not an array)
+    const gtag = (window as any).gtag;
 
     function grantConsent() {
       gtag("consent", "update", { analytics_storage: "granted" });
